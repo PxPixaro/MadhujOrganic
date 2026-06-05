@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madhuj Organic | Product Page</title>
+  <style>
+    :root{
+      --gold:#d8a533;
+      --gold-light:#fff0a8;
+      --deep:#071108;
+      --green:#2e621e;
+      --leaf:#82b929;
+      --cream:#fff8df;
+      --text:#2b2109;
+      --shadow:0 20px 55px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      min-height:100vh;
+      font-family:Georgia,'Times New Roman',serif;
+      background:
+        radial-gradient(circle at 20% 8%, rgba(216,165,51,.32), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(130,185,41,.28), transparent 30%),
+        linear-gradient(135deg,#041006 0%,#10280f 42%,#030603 100%);
+      color:var(--cream);
+      padding:24px;
+    }
+    .a4-page{
+      width:794px;
+      min-height:1123px;
+      margin:auto;
+      position:relative;
+      overflow:hidden;
+      border-radius:26px;
+      border:2px solid rgba(255,215,92,.75);
+      background:
+        linear-gradient(rgba(5,17,6,.84), rgba(5,17,6,.88)),
+        radial-gradient(circle at center, rgba(216,165,51,.22), transparent 45%);
+      box-shadow:var(--shadow);
+      padding:34px 42px;
+    }
+    .a4-page:before{
+      content:"";
+      position:absolute;
+      inset:22px;
+      border:1px solid rgba(255,233,148,.45);
+      border-radius:20px;
+      pointer-events:none;
+    }
+    .watermark{
+      position:absolute;
+      width:620px;
+      opacity:.035;
+      left:50%;top:49%;
+      transform:translate(-50%,-50%);
+      filter:drop-shadow(0 0 12px #ffd45c);
+      pointer-events:none;
+    }
+    header{text-align:center;position:relative;z-index:2}
+    .logo-wrap{display:inline-block;position:relative;overflow:hidden;border-radius:24px;padding:4px;transition:.35s ease}
+    .logo-wrap:after,.product-card:after{
+      content:"";position:absolute;top:-50%;left:-95%;width:70%;height:200%;
+      background:linear-gradient(110deg,transparent,rgba(255,255,255,.65),transparent);
+      transform:rotate(18deg);transition:.75s ease;
+    }
+    .logo-wrap:hover{transform:scale(1.035)}
+    .logo-wrap:hover:after,.product-card:hover:after{left:125%}
+    .brand-logo{width:255px;display:block;filter:drop-shadow(0 0 15px rgba(255,211,73,.45))}
+    h1{
+      margin-top:8px;
+      font-size:42px;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      color:var(--gold-light);
+      text-shadow:0 2px 0 #5b3a00,0 0 18px rgba(255,221,88,.3);
+    }
+    .tagline{margin-top:8px;font-size:17px;color:#dbecc0;letter-spacing:1px}
+    .hero{display:grid;grid-template-columns:1.08fr .92fr;gap:26px;align-items:center;margin-top:28px;position:relative;z-index:2}
+    .product-card{
+      position:relative;overflow:hidden;border-radius:24px;padding:18px;
+      background:linear-gradient(145deg,rgba(255,245,181,.16),rgba(50,105,28,.22));
+      border:1.5px solid rgba(255,222,105,.55);
+      box-shadow:inset 0 0 35px rgba(255,214,87,.08),0 18px 35px rgba(0,0,0,.28);
+    }
+    .product-card img{width:100%;display:block;border-radius:18px;filter:drop-shadow(0 18px 24px rgba(0,0,0,.42));transition:.35s ease}
+    .product-card:hover img{transform:scale(1.035)}
+    .details{
+      padding:20px 18px;border-radius:24px;
+      background:rgba(255,248,223,.96);color:var(--text);
+      border:2px solid rgba(216,165,51,.75);
+      box-shadow:0 14px 28px rgba(0,0,0,.22);
+    }
+    .badge{display:inline-block;background:linear-gradient(135deg,var(--gold),#fff0a8,var(--gold));color:#3b2500;padding:8px 16px;border-radius:999px;font-weight:700;margin-bottom:12px}
+    h2{font-size:30px;color:#314d13;margin-bottom:10px}
+    .details p{font-size:16px;line-height:1.55;margin-bottom:14px}
+    .features{display:grid;gap:9px;margin-top:12px}
+    .feature{background:#eef6d9;border-left:5px solid var(--gold);padding:10px 12px;border-radius:12px;font-size:15px;font-weight:700}
+    .section-title{text-align:center;margin:34px 0 16px;font-size:28px;color:var(--gold-light);position:relative;z-index:2}
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;z-index:2}
+    .info-box{background:rgba(255,248,223,.95);color:#2f270e;border:1.5px solid rgba(216,165,51,.75);border-radius:18px;padding:17px;text-align:center;box-shadow:0 8px 18px rgba(0,0,0,.2)}
+    .info-box b{display:block;color:#3f6419;margin-bottom:8px;font-size:17px}
+    .contact{margin-top:28px;position:relative;z-index:2;background:linear-gradient(135deg,rgba(255,248,223,.96),rgba(238,246,217,.96));color:var(--text);border:2px solid var(--gold);border-radius:24px;padding:22px;box-shadow:0 12px 28px rgba(0,0,0,.24)}
+    .contact h3{text-align:center;font-size:28px;color:#385914;margin-bottom:8px}.contact .sub{text-align:center;margin-bottom:16px;color:#5b4a16}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid textarea{grid-column:1/-1;height:76px;resize:none}
+    input,textarea{width:100%;border:1px solid #d8ba5d;border-radius:12px;padding:12px 13px;font-family:Arial,sans-serif;font-size:14px;outline:none;background:#fffdf1;color:#332500}
+    .buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .btn{border:none;border-radius:14px;padding:13px 12px;text-decoration:none;text-align:center;font-family:Arial,sans-serif;font-weight:800;letter-spacing:.3px;color:#fff;cursor:pointer;transition:.3s ease;box-shadow:0 8px 18px rgba(0,0,0,.24)}
+    .btn:hover{transform:translateY(-3px);filter:brightness(1.12)}
+    .submit{background:linear-gradient(135deg,#3c6f17,#8cc63e)}.whatsapp{background:linear-gradient(135deg,#128c4a,#25d366)}.call{background:linear-gradient(135deg,#b8860b,#ffe08a);color:#2a1b00}
+    footer{text-align:center;margin-top:16px;color:#f2e8bd;font-size:13px;position:relative;z-index:2}
+    @media print{body{padding:0;background:#fff}.a4-page{width:210mm;min-height:297mm;border-radius:0;box-shadow:none}.btn{box-shadow:none}}
+    @media(max-width:850px){body{padding:10px}.a4-page{width:100%;min-height:auto;padding:26px 18px}.hero,.info-grid,.buttons,.form-grid{grid-template-columns:1fr}h1{font-size:32px}.brand-logo{width:220px}}
+  </style>
+</head>
+<body>
+  <main class="a4-page">
+    <img class="watermark" src="assets/madhuj-logo.png" alt="Madhuj watermark">
+    <header>
+      <div class="logo-wrap"><img class="brand-logo" src="assets/madhuj-logo.png" alt="Madhuj Organic Logo"></div>
+      <h1>Madhuj Organic</h1>
+      <div class="tagline">Premium Organic Powder • Natural Purity • Royal Quality</div>
+    </header>
+
+    <section class="hero">
+      <div class="product-card"><img src="assets/organic-powder-bowl.png" alt="Madhuj Organic Powder Product"></div>
+      <div class="details">
+        <span class="badge">Featured Product</span>
+        <h2>Organic Green Powder</h2>
+        <p>Madhuj Organic Powder is crafted for a rich, natural and premium presentation. Perfect for organic product marketing, catalog pages, social media flyers and brand promotion.</p>
+        <div class="features">
+          <div class="feature">100% Natural Look & Premium Branding</div>
+          <div class="feature">Fine Powder Texture with Royal Gold Bowl</div>
+          <div class="feature">Ideal for Bulk Supply & Retail Packaging</div>
+          <div class="feature">Fresh Green Color, Organic Product Appeal</div>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="section-title">Product Highlights</h2>
+    <section class="info-grid">
+      <div class="info-box"><b>Quality</b>Selected organic powder with professional grade presentation.</div>
+      <div class="info-box"><b>Packaging</b>Available for retail, wholesale and customized packaging.</div>
+      <div class="info-box"><b>Supply</b>Best for traders, distributors and brand owners.</div>
+    </section>
+
+    <section class="contact">
+      <h3>Contact Us / Inquiry</h3>
+      <p class="sub">Price, sample, bulk order ya product detail ke liye inquiry bheje.</p>
+      <form action="mailto:yourmail@example.com" method="post" enctype="text/plain">
+        <div class="form-grid">
+          <input name="Name" type="text" placeholder="Your Name" required>
+          <input name="Mobile" type="tel" placeholder="Mobile / WhatsApp Number" required>
+          <input name="Email" type="email" placeholder="Email ID">
+          <input name="Quantity" type="text" placeholder="Required Quantity">
+          <textarea name="Message" placeholder="Your Message / Product Requirement"></textarea>
+        </div>
+        <div class="buttons">
+          <button class="btn submit" type="submit">Submit Inquiry</button>
+          <a class="btn whatsapp" href="https://wa.me/91XXXXXXXXXX?text=Hello%20Madhuj%20Organic,%20I%20want%20product%20details" target="_blank">WhatsApp</a>
+          <a class="btn call" href="tel:+91XXXXXXXXXX">Call Now</a>
+        </div>
+      </form>
+    </section>
+    <footer>© Madhuj Organic • Organic Powder Products • Replace mobile number and email in HTML before publishing.</footer>
+  </main>
+</body>
+</html>
